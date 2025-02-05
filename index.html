@@ -14,113 +14,446 @@
         <div class="sidebar-content">
             <h3>Contents</h3>
             <a href="#1">Software Preparation</a>
-            <a href="#2">GitHub Setup</a>
-            <a href="#3">VM Configuration</a>
-            <!-- Add more links for other sections -->
+            <a href="#2">Pushing to GitHub</a>
+            <a href="#3">Setting up VM</a>
+            <a href="#4">Create a New VM</a>
+            <a href="#5">Name & Folder</a>
+            <a href="#6">Compute Resource</a>
+            <a href="#7">Storage Selection</a>
+            <a href="#8">Compatibility</a>
+            <a href="#9">Guest OS</a>
+            <a href="#10">Hardware Customization</a>
+            <a href="#11">ISO Configuration</a>
+            <a href="#12">Ubuntu ISO Selection</a>
+            <a href="#13">Final Review</a>
+            <a href="#14">Web Console</a>
+            <a href="#15">Initial Server Setup</a>
+            <a href="#16">Language Selection</a>
+            <a href="#17">Keyboard Layout</a>
+            <a href="#18">Installation Type</a>
+            <a href="#19">Network Setup</a>
+            <a href="#20">Proxy Configuration</a>
+            <a href="#21">Archive Mirror</a>
+            <a href="#22">Installer Update</a>
+            <a href="#23">Storage Setup</a>
+            <a href="#24">Storage Confirmation</a>
+            <a href="#25">Profile Setup</a>
+            <a href="#26">SSH Configuration</a>
+            <a href="#27">Server Snaps</a>
+            <a href="#28">OS Installation</a>
+            <a href="#29">Initial Login</a>
+            <a href="#30">SSH Access</a>
+            <a href="#31">System Update</a>
+            <a href="#32">Nginx Configuration</a>
+            <a href="#33">GitHub Repo Clone</a>
+            <a href="#34">Nginx Config</a>
+            <a href="#35">Activate Config</a>
+            <a href="#36">Browser Test</a>
+            <a href="#37">DNS Setup</a>
+            <a href="#madeBy">Final Words</a>
         </div>
     </nav>
     <header class="header">
         <h1>How to Set Up VM with Ubuntu Server and Nginx</h1>
-        <p class="tagline">A step-by-step guide for seamless virtual machine configuration</p>
+        <p class="tagline">A step-by-step guide for setting up a virtual machine running Ubuntu Server 22.04 with Nginx.</p>
     </header>
 
     <main class="container">
         <section class="content-block" id="1">
             <h2>Software Preparation</h2>
-            <p>Start with GitHub Projects to organize your workflow effectively. Create clear milestones and track progress throughout your VM setup journey.</p>
-            <img src="images/Screenshot 2025-02-04 at 19.41.21.png" alt="GitHub Projects interface">
+            <p>To start off, I recommend you to first set up GitHub Projects, so that you can keep track of the project you are about to make. You can start off with a few key-points, and keep adding more if the project requires it. I added just a few to start myself off here.</p>
+            <img src="images/Setup/Screenshot 2025-02-04 at 19.41.21.png" alt="Screenshot of GitHub Projects">
         </section>
-
+    
         <section class="content-block" id="2">
             <h2>Pushing to GitHub</h2>
+            <p>I assume that you already have a project created in your code editor of choice, and the next step would be to push it to the cloud, to later easily get it onto the VM. On GitHub create a new repository with a suiting name and get back to the code editor.</p>
             <div class="code-block">
                 git init<br>
                 git branch -M main<br>
-                git remote add origin https://github.com/[user]/[repo].git<br>
+                git remote add origin https://github.com/[your-username]/[the-repository-name].git<br>
                 git commit -m "initial commit"<br>
                 git push origin main
             </div>
-            <img src="images/Screenshot 2025-02-04 at 19.58.00.png" alt="Terminal with git commands">
+            <img src="images/Setup/Screenshot 2025-02-04 at 19.58.00.png" alt="Terminal with git commands">
         </section>
-
+    
         <section class="content-block" id="3">
-            <h2>VM Configuration</h2>
-            <p>In VMware, right-click your partition and select "New Virtual Machine". Follow these critical hardware settings:</p>
-            <ul class="spec-list">
-                <li>CPU: 2-4 cores</li>
-                <li>Memory: 4-8GB RAM</li>
-                <li>Storage: 20-40GB (Thin Provision)</li>
-            </ul>
-            <img src="images/Screenshot from 2024-09-12 08-26-23.png" alt="VMware hardware settings">
+            <h2>Setting up VM</h2>
+            <p>The process of setting up a VM is pretty simple, but time consuming. This guide will show you how to create and use one using VMware. In VMware you can go to your partition/pool and right click to create a "New Virtual Machine..."</p>
+            <img src="images/SettingVM/Screenshot 2025-02-04 at 20.13.12.png" alt="VMware partition/pool">
         </section>
-
-        <!-- Add remaining sections following the same structure -->
+    
+        <section class="content-block" id="4">
+            <h2>Create a New Virtual Machine</h2>
+            <p>Here you just press "Next"</p>
+            <img src="images/SettingVM/Screenshot from 2024-09-12 08-25-23.png" alt="VM creation">
+        </section>
+    
+        <section class="content-block" id="5">
+            <h2>Select a Name and Folder</h2>
+            <p>Here you will name your Virtual Machine and select the location for it. The location should be picked for you, and if not, you just select the database cluster (IKT-fag-DS01 here).</p>
+            <img src="images/SettingVM/Screenshot from 2024-09-12 08-25-34.png" alt="VM name and folder">
+        </section>
+    
+        <section class="content-block" id="6">
+            <h2>Select a Compute Resource</h2>
+            <p>Select the pool you are assigned. I am in Elev-Pool #50 [BADGER].</p>
+            <img src="images/SettingVM/Screenshot from 2024-09-12 08-25-40.png" alt="Select compute resource">
+        </section>
+    
+        <section class="content-block" id="7">
+            <h2>Select Storage</h2>
+            <p>Here you would normally choose the largest drive if not told otherwise, as it is usually the one made for storing the VMs.</p>
+            <img src="images/SettingVM/Screenshot from 2024-09-12 08-25-45.png" alt="Select storage">
+        </section>
+    
+        <section class="content-block" id="8">
+            <h2>Select Compatibility</h2>
+            <p>Here you just press "Next"</p>
+            <img src="images/SettingVM/Screenshot from 2024-09-12 08-25-51.png" alt="Select compatibility">
+        </section>
+    
+        <section class="content-block" id="9">
+            <h2>Select a Guest OS</h2>
+            <p>Here you should select "Linux" as the Guest OS Family, and "Ubuntu Linux (64-bit)" as the Guest OS Version, as we are using Ubuntu Server for this project.</p>
+            <img src="images/SettingVM/Screenshot from 2024-09-12 08-25-55.png" alt="Select guest OS">
+        </section>
+    
+        <section class="content-block" id="10">
+            <h2>Customize Hardware</h2>
+            <p>This is a very important step in the creation, and is defined by how much resources your server has access to. For CPU i would recommend 2-4 cores, 4-8 GB of Memory and 20-40 GB of storage to install the OS. Expand the "New Hard disk" page to set the "Disk Provisioning" to "Thin Provision" to only use the storage it needs to, and not all the storage you specify. The storage you set will only then be the maximum value.</p>
+            <ul class="spec-list">
+                <li>CPU: 2 - 4 cores</li>
+                <li>Memory: 4 - 8GB RAM</li>
+                <li>Storage: 20 - 40GB (Thin Provision)</li>
+            </ul>
+            <img src="images/SettingVM/Screenshot from 2024-09-12 08-26-23.png" alt="Customize hardware">
+        </section>
         
+        <section class="content-block" id="11">
+            <h2>ISO Configuration</h2>
+            <p>Down at the "New CD/DVD Drive" page you should select "Content Library ISO File" and select "Connect At Power On"</p>
+            <img src="images/SettingVM/Screenshot from 2024-09-12 08-28-47.png" alt="ISO connection setup">
+        </section>
+        
+        <section class="content-block" id="12">
+            <h2>Ubuntu ISO Selection</h2>
+            <p>There will be a popup for you to select the installation of ubuntu you want. All the available ISO files will be here, and you just have to select "ubuntu-22.04.1-live-server-amd64" from the list. You can also add your own custom installations to VMware if you are admin, but we will not be covering that today. Select your installation and press "OK".</p>
+            <img src="images/SettingVM/Screenshot from 2024-09-12 08-28-07.png" alt="Ubuntu ISO selection">
+        </section>
+        
+        <section class="content-block" id="13">
+            <h2>Final Configuration Review</h2>
+            <p>Lastly, check if everything is correct on the last screen and click "FINISH".</p>
+            <img src="images/SettingVM/Screenshot from 2024-09-12 08-29-22.png" alt="Final configuration review">
+        </section>
+        
+        <section class="content-block" id="14">
+            <h2>Accessing Web Console</h2>
+            <p>To get into the console of the server you now created, you just have to click the blue "LAUNCH WEB CONSOLE" button.</p>
+            <img src="images/SettingVM/Screenshot from 2024-09-12 08-33-47.png" alt="Accessing web console">
+        </section>
+        
+        <section class="content-block" id="15">
+            <h2>Initial Server Setup</h2>
+            <p>The first screen you see will prompt you to choose the boot device, and you select "Try or Install Ubuntu Server" here. It should also automatically select it after some time if you do not do it yourself.</p>
+            <img src="images/SettingVM/Screenshot 2025-02-04 at 20.53.00.png" alt="Initial server setup">
+        </section>
+        
+        <section class="content-block" id="16">
+            <h2>Language Selection</h2>
+            <p>Select your preferred language, i recommend English, as it will be much easier to find troubleshooting information later on.</p>
+            <img src="images/SettingVM/Screenshot from 2024-09-12 08-34-05.png" alt="Language selection">
+        </section>
+        
+        <section class="content-block" id="17">
+            <h2>Keyboard Configuration</h2>
+            <p>Here you should just select the layout of the keyboard you are going to be using, for me it is Norwegian. You can either search for it in "Layout" or go through the "Identify keyboard" setup to find it.</p>
+            <img src="images/SettingVM/Screenshot from 2024-09-12 08-34-42.png" alt="Keyboard configuration">
+        </section>
+        
+        <section class="content-block" id="18">
+            <h2>Installation Type</h2>
+            <p>Just press Tab and Done, as you want to have the full "Ubuntu Server" and not the "minimized" version.</p>
+            <img src="images/SettingVM/Screenshot from 2024-09-12 08-34-55.png" alt="Installation type">
+        </section>
+        
+        <section class="content-block" id="19">
+            <h2>Network Configuration</h2>
+            <p>Enter "ens33" and select "Edit IPv4". Then change "Automatic" to "Manual". The Subnet should be set to your subnet, so for me "10.12.50.0/24", and for an IP on a local network - "192.168.1.0/24" for example. Set the Address to the IP you want the server to be at, so "10.12.50.79" for me, but you can change the last number for your server (the image shows another setup). The Gateway is usually the IP with a 1 at the end, so "10.12.50.1" for me. Name servers are the servers that redirect domain names to IP addresses, so here I will first use the IP of my schools DNS server "10.10.1.30" and "8.8.8.8,1.1.1.1" as those are Google and CloudFlare DNS servers. Leave the search domain empty.</p>
+            <div class="code-block">
+                My settings:<br>
+                Subnet: 10.12.50.0/24<br>
+                Address: 10.12.50.79<br>
+                Gateway: 10.12.50.1<br>
+                Name Servers: 10.10.1.30, 8.8.8.8, 1.1.1.1<br>
+                Search Domain: (Leave empty)
+            </div>
+            <img src="images/SettingVM/Screenshot from 2024-09-12 08-47-22.png" alt="Network settings interface">
+        </section>
+        
+        <section class="content-block" id="20">
+            <h2>Proxy Configuration</h2>
+            <p>There is nothing we have to configure here, so you can just select "Done".</p>
+            <img src="images/SettingVM/Screenshot from 2024-09-12 08-44-57.png" alt="Proxy configuration">
+        </section>
+        
+        <section class="content-block" id="21">
+            <h2>Archive Mirror Setup</h2>
+            <p>Here you also just press "Done"</p>
+            <img src="images/SettingVM/Screenshot from 2024-09-12 08-45-05.png" alt="Archive mirror setup">
+        </section>
+        
+        <section class="content-block" id="22">
+            <h2>Installer Update</h2>
+            <p>The installer will prompt you do update to the newest version (Ubuntu 24.04.1 as of creating this), but just press "Continue without updating"</p>
+            <img src="images/SettingVM/Screenshot from 2024-09-12 08-48-48.png" alt="Installer update">
+        </section>
+        
+        <section class="content-block" id="23">
+            <h2>Storage Configuration</h2>
+            <p>The default settings here are good, so you can just press "Done" here.</p>
+            <img src="images/SettingVM/Screenshot from 2024-09-12 08-49-04.png" alt="Storage configuration">
+        </section>
+        
+        <section class="content-block" id="24">
+            <h2>Storage Confirmation</h2>
+            <p>If everything looks good here you can just press "Done" and "Continue" at the popup window.</p>
+            <img src="images/SettingVM/Screenshot from 2024-09-12 08-49-21.png" alt="Storage confirmation">
+        </section>
+        
+        <section class="content-block" id="25">
+            <h2>User Profile Setup</h2>
+            <p>This is also a very important part of the setup process, as you cannot forget the username and password you will be using here, unless you want to start the whole process from scratch. I recommend setting the Name and Username to be the same for simplicity here, and give the server a name too. The password you select here is really important to remember. After you are done, select "Done".</p>
+            <img src="images/SettingVM/Screenshot from 2024-09-12 08-50-29.png" alt="User profile setup">
+        </section>
+        
+        <section class="content-block" id="26">
+            <h2>SSH Setup</h2>
+            <p>Here I highly advise you to select "Install OpenSSH server" as it will let you ssh into the VM as soon as it has updated. Then select "Done".</p>
+            <img src="images/SettingVM/Screenshot from 2024-09-12 08-52-38.png" alt="SSH setup">
+        </section>
+        
+        <section class="content-block" id="27">
+            <h2>Server Snaps</h2>
+            <p>You can leave this page as it is and select "Done".</p>
+            <img src="images/SettingVM/Screenshot from 2024-09-12 08-52-48.png" alt="Server snaps">
+        </section>
+        
+        <section class="content-block" id="28">
+            <h2>OS Installation</h2>
+            <p>Now the VM will install Ubuntu and this can take some time. Stand up from your chair and get some coffee, as it will not happen in the blink of an eye. When it is finished just press "Reboot Now" or wait until it does it itself after a while.</p>
+            <img src="images/SettingVM/Screenshot from 2024-09-12 09-19-25.png" alt="OS installation">
+        </section>
+        
+        <section class="content-block" id="29">
+            <h2>Initial Login</h2>
+            <p>Use your login and password here, to check if you can log into the server.</p>
+            <img src="images/SettingVM/Screenshot from 2024-09-12 09-25-05.png" alt="Initial login">
+        </section>
+        
+        <section class="content-block" id="30">
+            <h2>SSH Access</h2>
+            <p>Open your terminal of choice on your computer and type in "ssh [username]@[ip]", so for me "ssh lukasz@10.12.50.79" as it is the username I chose for the server on that IP. You will then have remote access to the server´s command line. Just type "yes" and then type in the password you set for the server to log in. Remember to check if you still are connected to the VPN of the organisation if it uses one, as access to ssh and IP´s is often blocked behind those.</p>
+            <div class="code-block">
+                ssh lukasz@10.12.50.79
+            </div>
+            <img src="images/SettingServer/Screenshot 2025-02-05 at 17.48.09.png" alt="SSH access">
+        </section>
+        
+        <section class="content-block" id="31">
+            <h2>System Updates</h2>
+            <p>First run a quick "sudo apt update && sudo apt upgrade -y" to update the dependencies on your system. You will also have to type in your password here. This process is pretty lengthy too, but it shouldn't take a whole trip to the bathroom. In the end there will be a window with a pink background where you just press Enter on "Ok".</p>
+            <div class="code-block">
+                sudo apt update && sudo apt upgrade -y
+            </div>
+            <img src="images/SettingServer/Screenshot 2025-02-05 at 17.55.34.png" alt="System updates">
+        </section>
+        
+        <section class="content-block" id="32">
+            <h2>Nginx Installation</h2>
+            <p>To install Nginx you have to run these commands:</p>
+            <div class="code-block">
+                sudo apt install nginx -y<br>
+                sudo systemctl start nginx<br>
+                sudo systemctl enable nginx<br>
+                sudo systemctl status nginx
+            </div>
+            <img src="images/SettingServer/Screenshot 2025-02-05 at 18.01.06.png" alt="Nginx installation process">
+            <p>There will also be a window with a pink background here too, and you should just Tab down to "Ok" and press it.</p> 
+            <img src="images/SettingServer/Screenshot 2025-02-05 at 18.01.34.png" alt="Service status confirmation">
+        </section>
+        
+        <section class="content-block" id="33">
+            <h2>GitHub Repository Clone</h2>
+            <p>First you will have to install github, and then clone the repository into "/var/www/[yourwebsite]" with these commands</p>
+            <div class="code-block">
+                sudo apt install git -y<br>
+                sudo git clone https://github.com/[yourusername]/[your-repo].git /var/www/[yourwebsite]
+            </div>
+            <p>So for me:</p>
+            <div class="code-block">
+                sudo git clone https://github.com/LukeFromAfar/GuideUbuntuVM.git /var/www/ubuntuguide
+            </div>
+            
+            <img src="images/SettingServer/Screenshot 2025-02-05 at 18.18.06.png" alt="GitHub repository clone">
+        </section>
+        
+        <section class="content-block" id="34">
+            <h2>Nginx Configuration</h2>
+            <p>To create the config file you will type this command:</p>
+            <div class="code-block">
+                sudo nano /etc/nginx/sites-available/[yourwebsite]
+            </div>
+            <p>So for me:</p>
+            <div class="code-block">
+                sudo nano /etc/nginx/sites-available/ubuntuguide
+            </div>
+            <img src="images/SettingServer/Screenshot 2025-02-05 at 18.32.44.png" alt="Config file editing">
+            <p>Then paste this into the file with Ctrl/CMD + V, and save and exit with Ctrl + S and Ctrl + X:</p>
+            <div class="code-block">
+                <pre>
+                        <code>
+server {
+    listen 80;
+    server_name [IP or Domain name of server];
+    
+    root /var/www/[yourwebsite];
+    index index.html;
+    
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}
+                        </code>
+                    </pre>
+            </div>
+            <p>So for me:</p>
+            <div class="code-block">
+                <pre>
+                        <code>
+server {
+    listen 80;
+    server_name ubuntuguide.badger.ikt-fag.no;
+    
+    root /var/www/ubuntuguide;
+    index index.html;
+    
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}
+                        </code>
+                    </pre>
+            </div>
+            
+            <img src="images/SettingServer/Screenshot 2025-02-05 at 18.26.33.png" alt="File save confirmation">
+        </section>
+        
+        <section class="content-block" id="35">
+            <h2>Activate Nginx Config</h2>
+            <p>To enable the changes we made, you have to paste these three lines:</p>
+            <div class="code-block">
+                sudo ln -s /etc/nginx/sites-available/[yourwebsite] /etc/nginx/sites-enabled/<br>
+                sudo nginx -t<br>
+                sudo systemctl reload nginx
+            </div>
+            <p>Remember to change the [yourwebsite] part to the folder name you use.</p>
+            <img src="images/SettingServer/Screenshot 2025-02-05 at 18.34.08.png" alt="Configuration activation">
+        </section>
+    
+        <section class="content-block" id="36">
+            <h2>Test Nginx in Browser</h2>
+            <p>To test this, simply type the IP of the server we are working with into the browser, so for me 10.12.50.79, and if there will be a welcoming Nginx screen there waiting for you - great, if not - you did something wrong.</p>
+            <img src="images/SettingServer/Screenshot 2025-02-05 at 18.36.53.png" alt="Browser test result">
+        </section>
+    
+        <section class="content-block" id="37">
+            <h2>DNS A-record Setup (Optional)</h2>
+            <p>I have already set up a Windows DHCP and DNS server, so I will let the domain name I used (ubuntuguide.badger.ikt-fag.no) work, and actually redirect to the server with the IP 10.12.50.79. If you have not made a DNS server, you can just put the server IP as “server_name” in the “sites-available/[yourwebsite]” instead of a domain name.</p>
+            <br>
+            <a href="#34">Go back to the Nginx configuration section</a>
+            <br>
+            <br>
+            <p>In the Windows server you have to click on "Tools", then "DNS", then open the "Forward Lookup Zones" where your server domain name should be - badger.ikt-fag.no for me.</p> 
+            <img src="images/SettingServer/Screenshot 2025-02-05 at 20.34.12.png" alt="DNS record creation">
+            <p> When you right click it, you have to press "New Host (A or AAAA)...", and just type the name of the website that you want to use - for me "ubuntuguide".</p>  
+            <img src="images/SettingServer/Screenshot 2025-02-05 at 20.34.42.png" alt="DNS record configuration">
+            <p> It will then fill out the rest for you on the FQDN, and you just have to input the IP address of the server you made in this guide, which is 10.12.50.79 for me.</p>
+            <img src="images/SettingServer/Screenshot 2025-02-05 at 20.35.57.png" alt="DNS server refresh">
+            <p>Press “Add Host” and right click on SERVER followed by “Refresh” to apply changes. It will now take some time (upwards of 15 minutes) for the server to apply the new domain, so keep calm. After that everything should work when you search for the domain in a browser, which for me is ubuntuguide.badger.ikt-fag.no. </p>
+            <img src="images/SettingServer/Screenshot 2025-02-05 at 20.30.19.png" alt="Domain verification">
+            <section class="content-block" id="madeBy">
+                <h2>Thanks for reading!</h2>
+                <p>This guide was made by Lukasz Brzozowski. You can find the source code on <a href="https://github.com/LukeFromAfar/GuideUbuntuVM">GitHub</a>.</p>
+                <p>If you have any questions or suggestions, feel free to contact me on <a href="mailto:lukasz.gamvik@gmail.com">my email</a>.</p>
+            </section>
+        </section>
     </main>
     <div class="image-overlay">
         <img src="" alt="Zoomed Image" class="zoomed-image">
     </div>
     <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const sidebar = document.querySelector('.sidebar');
-    const hamburger = document.querySelector('.hamburger');
-    
-    // Toggle sidebar on hamburger click
-    hamburger.addEventListener('click', function(e) {
-        e.stopPropagation();
-        sidebar.classList.toggle('active');
-    });
-
-    // Close sidebar when clicking outside
-    document.addEventListener('click', function() {
-        sidebar.classList.remove('active');
-    });
-
-    // Prevent sidebar close when clicking inside
-    sidebar.addEventListener('click', function(e) {
-        e.stopPropagation();
-    });
-
-    // Handle window resize
-    window.addEventListener('resize', function() {
-        if(window.innerWidth >= 769) {
-            sidebar.classList.remove('active');
-        }
-    });
-});
-// Add this JavaScript
-document.addEventListener('DOMContentLoaded', function() {
-    const images = document.querySelectorAll('.content-block img');
-    const overlay = document.querySelector('.image-overlay');
-    const zoomedImg = overlay.querySelector('.zoomed-image');
-
-    // Open image in overlay
-    images.forEach(img => {
-        img.addEventListener('click', function(e) {
-            e.stopPropagation();
-            zoomedImg.src = this.src;
-            overlay.classList.add('active');
-            document.body.classList.add('overlay-active');
+        document.addEventListener('DOMContentLoaded', function() {
+            const sidebar = document.querySelector('.sidebar');
+            const hamburger = document.querySelector('.hamburger');
+            
+            // Toggle sidebar on hamburger click
+            hamburger.addEventListener('click', function(e) {
+                e.stopPropagation();
+                sidebar.classList.toggle('active');
+            });
+        
+            // Close sidebar when clicking outside
+            document.addEventListener('click', function() {
+                sidebar.classList.remove('active');
+            });
+        
+            // Prevent sidebar close when clicking inside
+            sidebar.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+        
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                if(window.innerWidth >= 769) {
+                    sidebar.classList.remove('active');
+                }
+            });
         });
-    });
-
-    // Close overlay
-    overlay.addEventListener('click', function(e) {
-        if (e.target === overlay || e.target === zoomedImg) {
-            overlay.classList.remove('active');
-            document.body.classList.remove('overlay-active');
-        }
-    });
-
-    // Close with ESC key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && overlay.classList.contains('active')) {
-            overlay.classList.remove('active');
-            document.body.classList.remove('overlay-active');
-        }
-    });
-});
-</script>
-
+        // Add this JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('.content-block img');
+            const overlay = document.querySelector('.image-overlay');
+            const zoomedImg = overlay.querySelector('.zoomed-image');
+        
+            // Open image in overlay
+            images.forEach(img => {
+                img.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    zoomedImg.src = this.src;
+                    overlay.classList.add('active');
+                    document.body.classList.add('overlay-active');
+                });
+            });
+        
+            // Close overlay
+            overlay.addEventListener('click', function(e) {
+                if (e.target === overlay || e.target === zoomedImg) {
+                    overlay.classList.remove('active');
+                    document.body.classList.remove('overlay-active');
+                }
+            });
+        
+            // Close with ESC key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && overlay.classList.contains('active')) {
+                    overlay.classList.remove('active');
+                    document.body.classList.remove('overlay-active');
+                }
+            });
+        });
+        </script>
 </body>
 </html>
