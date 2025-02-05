@@ -3,13 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VM Setup Guide - Ubuntu Server & Nginx</title>
     <link rel="stylesheet" href="main.css">
-    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Setting up Ubuntu VM with Nginx</h1>
-    <h2>Tag: Software</h2>
-    <p>This guide will show you how to set up a Ubuntu VM with Nginx.</p>
-    <img src="./image.png" alt="Code from Ubuntu VM">
+    <nav class="sidebar">
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="hamburger">☰</label>
+        <div class="sidebar-content">
+            <h3>Contents</h3>
+            <a href="#1">Software Preparation</a>
+            <a href="#2">GitHub Setup</a>
+            <a href="#3">VM Configuration</a>
+            <!-- Add more links for other sections -->
+        </div>
+    </nav>
+    <header class="header">
+        <h1>How to Set Up VM with Ubuntu Server and Nginx</h1>
+        <p class="tagline">A step-by-step guide for seamless virtual machine configuration</p>
+    </header>
+
+    <main class="container">
+        <section class="content-block" id="1">
+            <h2>Software Preparation</h2>
+            <p>Start with GitHub Projects to organize your workflow effectively. Create clear milestones and track progress throughout your VM setup journey.</p>
+            <img src="images/Screenshot 2025-02-04 at 19.41.21.png" alt="GitHub Projects interface">
+        </section>
+
+        <section class="content-block" id="2">
+            <h2>Pushing to GitHub</h2>
+            <div class="code-block">
+                git init<br>
+                git branch -M main<br>
+                git remote add origin https://github.com/[user]/[repo].git<br>
+                git commit -m "initial commit"<br>
+                git push origin main
+            </div>
+            <img src="images/Screenshot 2025-02-04 at 19.58.00.png" alt="Terminal with git commands">
+        </section>
+
+        <section class="content-block" id="3">
+            <h2>VM Configuration</h2>
+            <p>In VMware, right-click your partition and select "New Virtual Machine". Follow these critical hardware settings:</p>
+            <ul class="spec-list">
+                <li>CPU: 2-4 cores</li>
+                <li>Memory: 4-8GB RAM</li>
+                <li>Storage: 20-40GB (Thin Provision)</li>
+            </ul>
+            <img src="images/Screenshot from 2024-09-12 08-26-23.png" alt="VMware hardware settings">
+        </section>
+
+        <!-- Add remaining sections following the same structure -->
+        
+    </main>
+    <div class="image-overlay">
+        <img src="" alt="Zoomed Image" class="zoomed-image">
+    </div>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const sidebar = document.querySelector('.sidebar');
+    const hamburger = document.querySelector('.hamburger');
+    
+    // Toggle sidebar on hamburger click
+    hamburger.addEventListener('click', function(e) {
+        e.stopPropagation();
+        sidebar.classList.toggle('active');
+    });
+
+    // Close sidebar when clicking outside
+    document.addEventListener('click', function() {
+        sidebar.classList.remove('active');
+    });
+
+    // Prevent sidebar close when clicking inside
+    sidebar.addEventListener('click', function(e) {
+        e.stopPropagation();
+    });
+
+    // Handle window resize
+    window.addEventListener('resize', function() {
+        if(window.innerWidth >= 769) {
+            sidebar.classList.remove('active');
+        }
+    });
+});
+// Add this JavaScript
+document.addEventListener('DOMContentLoaded', function() {
+    const images = document.querySelectorAll('.content-block img');
+    const overlay = document.querySelector('.image-overlay');
+    const zoomedImg = overlay.querySelector('.zoomed-image');
+
+    // Open image in overlay
+    images.forEach(img => {
+        img.addEventListener('click', function(e) {
+            e.stopPropagation();
+            zoomedImg.src = this.src;
+            overlay.classList.add('active');
+            document.body.classList.add('overlay-active');
+        });
+    });
+
+    // Close overlay
+    overlay.addEventListener('click', function(e) {
+        if (e.target === overlay || e.target === zoomedImg) {
+            overlay.classList.remove('active');
+            document.body.classList.remove('overlay-active');
+        }
+    });
+
+    // Close with ESC key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && overlay.classList.contains('active')) {
+            overlay.classList.remove('active');
+            document.body.classList.remove('overlay-active');
+        }
+    });
+});
+</script>
+
 </body>
 </html>
